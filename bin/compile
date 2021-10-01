@@ -131,6 +131,5 @@ echo "##########"
 echo debug
 echo "##########"
 
-MECABRC=$BUILD_DIR/.apt/etc/mecabrc
-MECAB_PATH=$BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu/libmecab.so
+cp -rp $BUILD_DIR/.apt/ /app/
 # ls -l $BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu
