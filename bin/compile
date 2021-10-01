@@ -8,7 +8,7 @@ set -eo pipefail
 # set -x
 
 # parse and derive params
-BUILD_DIR=/app
+BUILD_DIR=$1
 CACHE_DIR=$2
 LP_DIR=`cd $(dirname $0); cd ..; pwd`
 
@@ -131,5 +131,7 @@ echo "##########"
 echo debug
 echo "##########"
 
+env
 echo $BUILD_DIR
 ls -l $BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu
+find / -name libmecab.so
