@@ -127,5 +127,9 @@ topic "Rewrite package-config files"
 find $BUILD_DIR/.apt -type f -ipath '*/pkgconfig/*.pc' | xargs --no-run-if-empty -n 1 sed -i -e 's!^prefix=\(.*\)$!prefix='"$BUILD_DIR"'/.apt\1!g'
 
 #### add ####
+echo "##########"
+echo debug
+echo "##########"
+
 echo $BUILD_DIR
-dpkg -L mecab
+ls -l $BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu
