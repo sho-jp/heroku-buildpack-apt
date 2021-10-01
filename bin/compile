@@ -8,8 +8,8 @@ set -eo pipefail
 # set -x
 
 # parse and derive params
-BUILD_DIR=$1
-CACHE_DIR=$2
+BUILD_DIR=/app
+CACHE_DIR=/app
 LP_DIR=`cd $(dirname $0); cd ..; pwd`
 
 function error() {
@@ -126,10 +126,5 @@ export | grep -E -e ' (PATH|LD_LIBRARY_PATH|LIBRARY_PATH|INCLUDE_PATH|CPATH|CPPP
 topic "Rewrite package-config files"
 find $BUILD_DIR/.apt -type f -ipath '*/pkgconfig/*.pc' | xargs --no-run-if-empty -n 1 sed -i -e 's!^prefix=\(.*\)$!prefix='"$BUILD_DIR"'/.apt\1!g'
 
-#### add ####
-echo "##########"
-echo debug
-echo "##########"
-
-cp -rp $BUILD_DIR/.apt/ /app/
-# ls -l $BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu
+# add copy
+# cp -rp $BUILD_DIR/.apt/ /app/
